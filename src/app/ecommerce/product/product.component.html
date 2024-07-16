@@ -1,0 +1,10 @@
+<div *ngIf="product">
+  <h2>{{ product.title }}</h2>
+  <img [src]="product.thumbnail" alt="{{ product.title }}">
+  <p>Precio: {{ product.price }} {{ product.currency_id }}</p>
+  <p>Disponibles: {{ product.available_quantity }}</p>
+  <p>{{ product.description }}</p>
+</div>
+<div *ngIf="!product">
+  <p>Loading...</p>
+</div>

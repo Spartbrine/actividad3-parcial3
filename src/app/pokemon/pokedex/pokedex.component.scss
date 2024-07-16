@@ -1,0 +1,49 @@
+.pokedex {
+  display: flex;
+  background-color: red;
+  border: 10px solid black;
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+}
+
+.left-panel, .right-panel {
+  flex: 1;
+  padding: 10px;
+}
+
+.pokemon-card {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.shiny-toggle {
+  background-color: yellow;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.description {
+  background-color: lightgreen;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.stats, .types, .abilities, .evolutions {
+  background-color: navy;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 10px;
+}

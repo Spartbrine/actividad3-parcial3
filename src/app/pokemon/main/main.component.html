@@ -1,0 +1,5 @@
+<div class="pokedex">
+  <pokemon-display [pokemon]="pokemon" (toggleShiny)="toggleShiny()"></pokemon-display>
+  <pokemon-stats [pokemon]="pokemon"></pokemon-stats>
+  <pokemon-navigation (navigate)="navigatePokemon($event)"></pokemon-navigation>
+</div>

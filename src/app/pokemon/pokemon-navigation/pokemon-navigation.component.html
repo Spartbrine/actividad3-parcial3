@@ -1,0 +1,5 @@
+<div class="navigation">
+  <button (click)="previous.emit()">Previous</button>
+  <input type="number" [value]="pokemonId" (change)="onPokemonIdChange($event)" />
+  <button (click)="next.emit()">Next</button>
+</div>
