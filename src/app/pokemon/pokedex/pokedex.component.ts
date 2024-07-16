@@ -6,11 +6,12 @@ import { PokemonStatsComponent } from '../pokemon-stats/pokemon-stats.component'
 import { PokemonAbilitiesComponent } from '../pokemon-abilities/pokemon-abilities.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { PokemonNavigationComponent } from '../pokemon-navigation/pokemon-navigation.component';
 
 @Component({
   selector: 'app-pokedex',
   standalone: true,
-  imports: [PokemonCardComponent, PokemonStatsComponent, PokemonAbilitiesComponent, CommonModule, FormsModule],
+  imports: [PokemonCardComponent, PokemonStatsComponent, PokemonAbilitiesComponent, CommonModule, FormsModule, PokemonNavigationComponent],
   templateUrl: './pokedex.component.html',
   styleUrl: './pokedex.component.scss'
 })
@@ -19,7 +20,9 @@ export class PokedexComponent {
   pokemonId: number = 1;
   shiny: boolean = false;
 
-  constructor(private pokemonService: FetcpokedexService) {
+  constructor(private pokemonService: FetcpokedexService) {}
+
+  ngOnInit(): void {
     this.loadPokemon();
   }
 
@@ -43,10 +46,9 @@ export class PokedexComponent {
     this.loadPokemon();
   }
 
-  onPokemonIdChange(): void {
-    if (this.pokemonId < 1 || this.pokemonId > 898) {
-      this.pokemonId = 1;
-    }
+  onPokemonIdChange(newId: number): void {
+    this.pokemonId = newId;
     this.loadPokemon();
   }
+
 }

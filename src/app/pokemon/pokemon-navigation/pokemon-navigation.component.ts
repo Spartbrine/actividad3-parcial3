@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'pokemon-navigation',
+  selector: 'app-pokemon-navigation',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './pokemon-navigation.component.html',
@@ -15,6 +15,11 @@ export class PokemonNavigationComponent {
   @Output() pokemonIdChange = new EventEmitter<number>();
 
   onPokemonIdChange(event: any): void {
-    this.pokemonIdChange.emit(parseInt(event.target.value, 10));
+    const newId = parseInt(event.target.value, 10);
+    if (newId > 0 && newId <= 898) {
+      this.pokemonIdChange.emit(newId);
+    } else {
+      alert('Pokemon ID must be between 1 and 898');
+    }
   }
 }

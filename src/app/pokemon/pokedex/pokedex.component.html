@@ -1,4 +1,4 @@
-<div class="pokedex">
+<!-- <div class="pokedex">
   <div class="left-panel">
     <div class="pokemon-card">
       <app-pokemon-card [pokemon]="pokemon" [shiny]="shiny"></app-pokemon-card>
@@ -7,10 +7,19 @@
     <div class="description">
       {{ pokemon?.description }}
     </div>
+    <app-pokemon-navigation class=""
+      [pokemonId]="pokemonId"
+      (next)="nextPokemon()"
+      (previous)="previousPokemon()"
+      (pokemonIdChange)="onPokemonIdChange($event)">
+    </app-pokemon-navigation>
   </div>
   <div class="right-panel">
-    <div class="stats">
-      <app-pokemon-stats [pokemon]="pokemon"></app-pokemon-stats>
+    <div class="evolutions">
+      <div *ngFor="let evolution of pokemon?.evolutions" class="evolution">
+        <img [src]="evolution.imageUrl" alt="{{ evolution.name }}" />
+        {{ evolution.name }}
+      </div>
     </div>
     <div class="types">
       <div *ngFor="let type of pokemon?.types" class="type">
@@ -20,16 +29,44 @@
     <div class="abilities">
       <app-pokemon-abilities [pokemon]="pokemon"></app-pokemon-abilities>
     </div>
+    <div class="stats">
+      <app-pokemon-stats [pokemon]="pokemon"></app-pokemon-stats>
+    </div>
+
+
+  </div>
+</div> -->
+
+<div class="pokedex">
+  <div class="left-panel">
+    <div class="pokemon-card">
+      <app-pokemon-card [pokemon]="pokemon" [shiny]="shiny"></app-pokemon-card>
+    </div>
+    <button class="shiny-toggle" (click)="toggleShiny()">Shiny</button>
+    <div class="description">
+      {{ pokemon?.description }}
+    </div>
+    <app-pokemon-navigation
+      [pokemonId]="pokemonId"
+      (next)="nextPokemon()"
+      (previous)="previousPokemon()"
+      (pokemonIdChange)="onPokemonIdChange($event)">
+    </app-pokemon-navigation>
+  </div>
+  <div class="right-panel">
     <div class="evolutions">
       <div *ngFor="let evolution of pokemon?.evolutions" class="evolution">
-        <h1 class="text-center">Evolutions</h1>
+        <img [src]="evolution.imageUrl" alt="{{ evolution.name }}" />
         {{ evolution.name }}
       </div>
     </div>
-    <div class="navigation">
-      <button (click)="previousPokemon()">Previous</button>
-      <input type="number" [(ngModel)]="pokemonId" (change)="onPokemonIdChange()" />
-      <button (click)="nextPokemon()">Next</button>
+    <div class="types">
+      <div *ngFor="let type of pokemon?.types" class="type">
+        {{ type.type.name }}
+      </div>
+    </div>
+    <div class="abilities">
+      <app-pokemon-abilities [pokemon]="pokemon"></app-pokemon-abilities>
     </div>
   </div>
 </div>

@@ -3,9 +3,6 @@ import { Pokemon } from '../../models/pokedex.model';
 import { CommonModule } from '@angular/common';
 import { Chart, ChartConfiguration, ChartData, ChartOptions, ChartType, registerables } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
-
-Chart.register(...registerables);
-
 @Component({
   selector: 'app-pokemon-stats',
   standalone: true,
