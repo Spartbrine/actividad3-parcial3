@@ -15,7 +15,7 @@ import { PokemonNavigationComponent } from '../pokemon-navigation/pokemon-naviga
   templateUrl: './pokedex.component.html',
   styleUrl: './pokedex.component.scss'
 })
-export class PokedexComponent {
+export class PokedexComponent{
   pokemon: Pokemon | undefined;
   pokemonId: number = 1;
   shiny: boolean = false;
@@ -50,5 +50,4 @@ export class PokedexComponent {
     this.pokemonId = newId;
     this.loadPokemon();
   }
-
 }

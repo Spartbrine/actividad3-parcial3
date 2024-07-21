@@ -22,7 +22,7 @@ export class FetcpokedexService {
     return forkJoin({
       description: this.http.get<PokemonSpecies>(`https://pokeapi.co/api/v2/pokemon-species/${pokemon.id}`)
         .pipe(map(data => data.flavor_text_entries.find(entry => entry.language.name === 'en')?.flavor_text || '')),
-      evolutions: this.http.get<EvolutionChain>(`https://pokeapi.co/api/v2/evolution-chain/${pokemon.id}`)
+      evolutions: this.http.get<EvolutionChain>(pokemon.species.url)
         .pipe(map(data => this.extractEvolutions(data.chain)))
     }).pipe(
       map(details => ({
